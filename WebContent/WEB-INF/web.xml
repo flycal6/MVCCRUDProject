@@ -5,8 +5,8 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>LostTeams</display-name>
 	<welcome-file-list>
-		<welcome-file>team.jsp</welcome-file>
-		<welcome-file>team.do</welcome-file>
+		<welcome-file>home.jsp</welcome-file>
+		<welcome-file>home.do</welcome-file>
 	</welcome-file-list>
 
 	<context-param>

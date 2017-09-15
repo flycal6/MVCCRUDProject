@@ -54,7 +54,7 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 	}
 	
 	@Override
-	public String getHello() {
+	public String homePage() {
 		return "Hello";
 	}
 
@@ -70,5 +70,10 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 			}
 		}
 		return t;
+	}
+
+	@Override
+	public List<LostTeam> getTeams() {
+		return teams;
 	}
 }

@@ -1,0 +1,20 @@
+.teamDiv {
+	height: 300px;
+	float: left;
+	border: 1px solid skyblue;
+	border-radius: 2px;
+	margin: 5px 5px 30px 5px;
+	padding: 20px;
+}
+
+.teamDiv img{
+	height: 280px;
+}
+
+.findTeam {
+	clear:both;
+}
+
+.monoton {
+	font-family: 'Monoton', cursive;
+}

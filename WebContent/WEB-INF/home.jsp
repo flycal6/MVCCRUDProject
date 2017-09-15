@@ -4,15 +4,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 <title>Defunct NHL Teams</title>
 </head>
 <body>
-	<%-- <p>STS says, "${data}"</p> --%>
-	<p>app says " ${data}"</p>
+	<h2 class="monoton">Defunct NHL Teams</h2>
 	
-	<h4>Find a team</h4>
+		<c:forEach var="team" items="${teamList}">
+		<a href="GetTeamByName.do?teamName=<c:out value='${team.name}'/>">
+			<div class="teamDiv">
+				<img src="${team.logo}" />
+				<p class="monoton">${team.name}</p>
+			</div></a>
+		</c:forEach>
 	
-	<form action="GetTeamByName.do" method="POST">
+	
+	<form class="findTeam" action="GetTeamByName.do" method="POST">
 		<input type="text" name="teamName">
 		<input type="submit" name="submit" value="Find Team">
 	</form>

@@ -7,8 +7,8 @@
 <title>Defunct NHL Teams</title>
 </head>
 <body>
-	<%-- <p>STS says, "${data}"</p> --%>
-	
+
+	<a href="home.do"><button>Home</button></a>	
 	<h4>${team.name}</h4>
 	<c:choose>
 		<c:when test="${! empty team}">

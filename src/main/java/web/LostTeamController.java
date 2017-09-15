@@ -15,15 +15,23 @@ public class LostTeamController {
 	@Autowired
 	LostTeamDAO dao;
 	
-	@RequestMapping("team.do")
-	public ModelAndView hello() {
+	@RequestMapping("home.do")
+	public ModelAndView homePage() {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("data", dao.getHello());
+		mv.addObject("teamList", dao.getTeams());
 		return mv;
 	}
 	
 	@RequestMapping(path = "GetTeamByName.do", params = "teamName", method = RequestMethod.POST)
 	public ModelAndView getTeamByName(String teamName) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("team", dao.getTeamByName(teamName));
+		mv.setViewName("result");
+		return mv;
+	}
+
+	@RequestMapping(path = "GetTeamByName.do", params = "teamName", method = RequestMethod.GET)
+	public ModelAndView getClickedTeam(String teamName) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("team", dao.getTeamByName(teamName));
 		mv.setViewName("result");
