@@ -27,6 +27,7 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 	 */
 	@PostConstruct
 	public void init() {
+		System.out.println("in init()");
 		// Retrieve an input stream from the servlet context
 		// rather than directly from the file system
 		try (InputStream is = wac.getServletContext().getResourceAsStream(FILE_NAME);
@@ -34,17 +35,18 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 			String line = buf.readLine();
 			while ((line = buf.readLine()) != null) {
 				String[] tokens = line.split(",");
-				String name = tokens[1];
-				String firstYear = tokens[2];
-				String lastYear = tokens[3];
-				String relocatedTo = tokens[4];
-				String seasons = tokens[5];
-				String record = tokens[6];
-				String winPercent = tokens[7];
-				String playoffs = tokens[8];
-				String stanleyCups = tokens[9];
-				String reason = tokens[10];
-				teams.add(new LostTeam(name, firstYear, lastYear, relocatedTo, seasons, record, winPercent, playoffs, stanleyCups, reason));
+				String name = tokens[0];
+				String firstYear = tokens[1];
+				String lastYear = tokens[2];
+				String relocatedTo = tokens[3];
+				String seasons = tokens[4];
+				String record = tokens[5];
+				String winPercent = tokens[6];
+				String playoffs = tokens[7];
+				String stanleyCups = tokens[8];
+				String reason = tokens[9];
+				String logo = tokens[10];
+				teams.add(new LostTeam(name, firstYear, lastYear, relocatedTo, seasons, record, winPercent, playoffs, stanleyCups, reason, logo));
 			}
 		} catch (Exception e) {
 			System.err.println(e);
@@ -54,5 +56,19 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 	@Override
 	public String getHello() {
 		return "Hello";
+	}
+
+	@Override
+	public LostTeam getTeamByName(String name) {
+		LostTeam t = null;
+		for (LostTeam team : teams) {
+			if (team.getName().equalsIgnoreCase(name)) {
+				t = team;
+				break;
+			} else {
+				
+			}
+		}
+		return t;
 	}
 }

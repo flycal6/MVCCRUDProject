@@ -11,9 +11,10 @@ public class LostTeam {
 	private String playoffs;
 	private String stanleyCups;
 	private String reason;
+	private String logo;
 
 	public LostTeam(String name, String firstYear, String lastYear, String relocatedTo, String seasons, String record,
-			String winPercent, String playoffs, String stanleyCups, String reason) {
+			String winPercent, String playoffs, String stanleyCups, String reason, String logo) {
 		this.name = name;
 		this.firstYear = firstYear;
 		this.lastYear = lastYear;
@@ -24,6 +25,7 @@ public class LostTeam {
 		this.playoffs = playoffs;
 		this.stanleyCups = stanleyCups;
 		this.reason = reason;
+		this.logo = logo;
 	}
 
 	public String getName() {
@@ -104,6 +106,15 @@ public class LostTeam {
 
 	public void setReason(String reason) {
 		this.reason = reason;
+	}
+
+	
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 
 	@Override

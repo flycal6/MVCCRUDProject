@@ -4,10 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Defunct NHL Teams</title>
 </head>
 <body>
 	<%-- <p>STS says, "${data}"</p> --%>
 	<p>app says " ${data}"</p>
+	
+	<h4>Find a team</h4>
+	
+	<form action="GetTeamByName.do" method="POST">
+		<input type="text" name="teamName">
+		<input type="submit" name="submit" value="Find Team">
+	</form>
 </body>
 </html>
