@@ -27,7 +27,6 @@ public class LostTeamController {
 	@RequestMapping("addTeam.do")
 	public ModelAndView addTeamPage() {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("teamList", dao.getTeams());
 		mv.setViewName("addTeam");
 		return mv;
 	}
@@ -51,7 +50,9 @@ public class LostTeamController {
 	@RequestMapping(path="CreateTeam.do", method=RequestMethod.POST)
 	public ModelAndView createTeamRedir(LostTeam team, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		dao.addTeam(team);
+		if(team != null) {
+			dao.addTeam(team);
+		}
 		redir.addFlashAttribute("team", team);
 		mv.setViewName("redirect:TeamAdded.do");
 		return mv;
@@ -59,7 +60,6 @@ public class LostTeamController {
 	
 	@RequestMapping(path="TeamAdded.do", method=RequestMethod.GET)
 	public ModelAndView teamAdded(LostTeam team) {
-		dao.addTeam(team);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("result");
 		return mv;
