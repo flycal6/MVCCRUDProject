@@ -4,10 +4,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -16,7 +14,7 @@ import data.LostTeam;
 import data.LostTeamDAO;
 
 @Controller
-@SessionAttributes("team")
+@SessionAttributes("team")	// Get session for deleting objects for user
 public class LostTeamController {
 
 	@Autowired
@@ -52,12 +50,11 @@ public class LostTeamController {
 		return mv;
 	}
 	@RequestMapping(path="RemoveTeam.do")
-	public ModelAndView removeTeam(HttpSession session, RedirectAttributes redir) {
-		LostTeam team = (LostTeam) session.getAttribute("team");
-		ModelAndView mv = new ModelAndView();
+	public ModelAndView removeTeam(HttpSession session, RedirectAttributes redir) {	// Get the session to get the team to be removed
+		LostTeam team = (LostTeam) session.getAttribute("team");						// cast the session attribute to a LostTeam 
+		ModelAndView mv = new ModelAndView();										// so it can be removed from the list
 		if(team != null) {
-			System.out.println("removing team");
-			System.out.println(team);
+			System.out.println("removing " + team);
 			dao.removeTeam(team);
 		} else {
 			System.out.println("didn't remove, team was null");
