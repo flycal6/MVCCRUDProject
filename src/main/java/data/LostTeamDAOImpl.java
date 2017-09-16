@@ -76,4 +76,9 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 	public List<LostTeam> getTeams() {
 		return teams;
 	}
+
+	@Override
+	public void addTeam(LostTeam team) {
+		teams.add(team);
+	}
 }

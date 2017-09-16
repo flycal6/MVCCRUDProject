@@ -12,6 +12,9 @@ public class LostTeam {
 	private String stanleyCups;
 	private String reason;
 	private String logo;
+	
+	public LostTeam() {
+	}
 
 	public LostTeam(String name, String firstYear, String lastYear, String relocatedTo, String seasons, String record,
 			String winPercent, String playoffs, String stanleyCups, String reason, String logo) {

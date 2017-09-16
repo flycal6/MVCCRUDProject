@@ -10,6 +10,7 @@
 </head>
 <body>
 	<h2 class="monoton">Defunct NHL Teams</h2>
+	<a href="addTeam.do"><button>Add a Team</button></a>
 	
 		<c:forEach var="team" items="${teamList}">
 		<a href="GetTeamByName.do?teamName=<c:out value='${team.name}'/>">
