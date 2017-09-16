@@ -13,11 +13,13 @@
 	<h2 class="monoton">Defunct NHL Teams</h2>
 	
 	<a href="addTeam.do"><button>Add a Team &emsp;</button></a>
+	
 	<form class="findTeam" action="GetTeamByName.do" method="POST">
 		<input type="text" name="teamName">
 		<input type="submit" name="submit" value="Find Team">
 	</form>
-	
+	<c:choose>
+		<c:when test="${! empty teamList}">
 		<c:forEach var="team" items="${teamList}">
 		<a href="GetTeamByName.do?teamName=<c:out value='${team.name}'/>">
 			<div class="teamDiv">
@@ -25,6 +27,10 @@
 				<p class="monoton">${team.name}</p>
 			</div></a>
 		</c:forEach>
-	
+		</c:when>
+		<c:otherwise>
+			<p>No team found</p>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>

@@ -37,15 +37,22 @@ public class LostTeamController {
 	@RequestMapping(path = "GetTeamByName.do", params = "teamName", method = RequestMethod.POST)
 	public ModelAndView getTeamByName(String teamName) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("team", dao.getTeamByName(teamName));
-		mv.setViewName("result");
+		if(dao.getTeamByName(teamName) != null) {
+			mv.addObject("team", dao.getTeamByName(teamName));
+			mv.setViewName("result");
+		} else {
+			mv.setViewName("home");
+		}
+		
 		return mv;
 	}
 
 	@RequestMapping(path = "GetTeamByName.do", params = "teamName", method = RequestMethod.GET)
 	public ModelAndView getClickedTeam(String teamName) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("team", dao.getTeamByName(teamName));
+		if(dao.getTeamByName(teamName) != null) {
+			mv.addObject("team", dao.getTeamByName(teamName));
+		}
 		mv.setViewName("result");
 		return mv;
 	}
