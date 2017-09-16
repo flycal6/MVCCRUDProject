@@ -96,4 +96,9 @@ public class LostTeamController {
 		mv.setViewName("result");
 		return mv;
 	}
+	@RequestMapping(path="EditTeam.do")
+	public String editTeam(LostTeam team) {
+		
+		return "editTeam";
+	}
 }

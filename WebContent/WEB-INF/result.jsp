@@ -13,6 +13,8 @@
 		<input type="submit" value="Delete This Team">
 	
 	</form>
+	<a href="EditTeam.do"><button>Edit Details</button></a>	
+	
 	<h4>${team.name}</h4>
 	<c:choose>
 		<c:when test="${! empty team}">
