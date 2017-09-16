@@ -30,6 +30,7 @@
 		</c:when>
 		<c:otherwise>
 			<p>No team found</p>
+			<a href="home.do"><button>Home</button></a>
 		</c:otherwise>
 	</c:choose>
 </body>
