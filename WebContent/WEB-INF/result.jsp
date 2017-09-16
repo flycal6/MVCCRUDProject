@@ -9,6 +9,11 @@
 <body>
 
 	<a href="home.do"><button>Home</button></a>	
+	<!-- <a href="RemoveTeam.do"><button>Delete This Team</button></a> -->
+	<form action="RemoveTeam.do" method="POST">
+		<input type="submit" value="Delete This Team">
+	
+	</form>
 	<h4>${team.name}</h4>
 	<c:choose>
 		<c:when test="${! empty team}">

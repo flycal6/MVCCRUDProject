@@ -4,13 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
 <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-<title>Defunct NHL Teams</title>
+<title>Lost NHL Teams</title>
 </head>
 <body>
 	<h2 class="monoton">Defunct NHL Teams</h2>
-	<a href="addTeam.do"><button>Add a Team</button></a>
+	
+	<a href="addTeam.do"><button>Add a Team &emsp;</button></a>
+	<form class="findTeam" action="GetTeamByName.do" method="POST">
+		<input type="text" name="teamName">
+		<input type="submit" name="submit" value="Find Team">
+	</form>
 	
 		<c:forEach var="team" items="${teamList}">
 		<a href="GetTeamByName.do?teamName=<c:out value='${team.name}'/>">
@@ -20,10 +26,5 @@
 			</div></a>
 		</c:forEach>
 	
-	
-	<form class="findTeam" action="GetTeamByName.do" method="POST">
-		<input type="text" name="teamName">
-		<input type="submit" name="submit" value="Find Team">
-	</form>
 </body>
 </html>

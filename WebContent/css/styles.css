@@ -12,9 +12,13 @@
 }
 
 .findTeam {
-	clear:both;
+	display: inline;
 }
 
 .monoton {
 	font-family: 'Monoton', cursive;
 }
+
+/* button {
+	clear: both;
+} */
