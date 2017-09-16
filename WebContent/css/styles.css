@@ -2,6 +2,11 @@ body{
 	/* background-color: #C8CBCC; */
 	background-color: #FAFEFF;
 }
+.main {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
 .teamDiv {
 	height: 300px;
 	float: left;
@@ -23,9 +28,12 @@ body{
 	font-family: 'Monoton', cursive;
 }
 
-/* button {
-	clear: both;
-} */
+.figure {
+	height: 35vh;
+}
+.figure img {
+	height: 30vh;
+}
 
 /*
  * Style tweaks
