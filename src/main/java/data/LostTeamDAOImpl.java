@@ -86,4 +86,10 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 	public void removeTeam(LostTeam team) {
 		teams.remove(team);
 	}
+
+//	@Override
+//	public LostTeam updateTeam(LostTeam team) {
+//		teams.add(team);
+//		return null;
+//	}
 }

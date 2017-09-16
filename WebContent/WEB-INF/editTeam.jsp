@@ -18,6 +18,8 @@
 		<input type="text" name="lastYear" value="${team.lastYear}"/><br/>
 		Where are they now: 
 		<input type="text" name="relocatedTo" value="${team.relocatedTo}"/><br/>
+		Number of seasons played: 
+		<input type="text" name="seasons" value="${team.seasons}"/><br/>
 		record:
 		<input type="text" name="record" value="${team.record}"/><br/>
 		Win Percentage:
