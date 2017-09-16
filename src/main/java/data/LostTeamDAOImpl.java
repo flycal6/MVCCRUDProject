@@ -62,7 +62,7 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 	public LostTeam getTeamByName(String name) {
 		LostTeam t = null;
 		for (LostTeam team : teams) {
-			if (team.getName().equalsIgnoreCase(name)) {
+			if (team.getName().toLowerCase().contains(name.toLowerCase())) {
 				t = team;
 				break;
 			} else {
