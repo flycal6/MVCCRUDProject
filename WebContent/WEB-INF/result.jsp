@@ -63,11 +63,13 @@
 	<div class="container">
 		<div class="main row">
 			<div class="col-12 col-md-11">
-				<h4 class="monoton">${team.name}</h4>
+				<div class="row justify-content-center">
 				<c:choose>
 					<c:when test="${! empty team}">
+					<div class="card col-10 col-sm-6 col-md-4">
 						<img style="height: 300px;" src="${team.logo}"></img>
 						<ul class="resultList list-group">
+						<h4 class="monoton">${team.name}</h4>
 							<li><span class="listLabel">Existed: </span>${team.firstYear}- ${team.lastYear}</li><hr>
 							<li><span class="listLabel">Current Location: </span>${team.relocatedTo}</li><hr>
 							<li><span class="listLabel">Record: </span>${team.record}</li><hr>
@@ -76,11 +78,13 @@
 							<li><span class="listLabel">Stanley Cups: </span>${team.stanleyCups}</li><hr>
 							<li><span class="listLabel">Reason: </span>${team.reason}</li>
 						</ul>
+						</div>
 					</c:when>
 					<c:otherwise>
 						<p>No team found</p>
 					</c:otherwise>
 				</c:choose>
+				</div>
 			</div>
 		</div>
 	</div>
