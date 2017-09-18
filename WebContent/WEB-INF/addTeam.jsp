@@ -58,8 +58,8 @@
 	</nav>
 
 	<div class="container">
-		<div class="main row">
-			<div class="col-12 col-md-11">
+		<div class="main row justify-content-center">
+			<div class="col-12 col-md-8">
 				<h3>New Team</h3>
 				<form action="CreateTeam.do" method="POST">
 					Name: <input type="text" name="name" class="form-control mr-sm-2" value="Puerto Rico Coasters" /><br />
