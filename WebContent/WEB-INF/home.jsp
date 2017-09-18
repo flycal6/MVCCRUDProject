@@ -16,8 +16,7 @@
 	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
-<link href="https://fonts.googleapis.com/css?family=Monoton"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 <title>Lost NHL Teams</title>
 </head>
 <body>
@@ -77,7 +76,6 @@
 					</c:when>
 					<c:otherwise>
 						<p>No team found</p>
-						<a href="home.do"><button>Home</button></a>
 					</c:otherwise>
 				</c:choose>
 			</div>

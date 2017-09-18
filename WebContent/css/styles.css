@@ -35,6 +35,18 @@ body{
 	height: 30vh;
 }
 
+.listLabel {
+	font-family: 'Monoton', cursive;
+}
+.resultList {
+	list-style: none;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+.resultList li {
+	/* padding-bottom: 10px; */
+}
+
 /*
  * Style tweaks
  * --------------------------------------------------
