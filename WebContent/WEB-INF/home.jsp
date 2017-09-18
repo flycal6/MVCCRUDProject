@@ -15,7 +15,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
 	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
 	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
 <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 <title>Lost NHL Teams</title>
 </head>
@@ -56,31 +56,33 @@
 			</form>
 		</div>
 	</nav>
-
+	<div class="album text-muted">
 	<div class="container">
-		<div class="main row">
+
 			<div class="col-12 col-md-11">
 				<h2 class="monoton">Dead and Relocated Teams</h2>
-
-				<c:choose>
-					<c:when test="${! empty teamList}">
-						<c:forEach var="team" items="${teamList}">
-						<a href="GetTeamByName.do?teamName=<c:out value='${team.name}'/>">
-							<figure class="figure mx-3 my-5">
-								<img src="${team.logo}" class="figure-img img-fluid rounded"
-									alt="A generic square placeholder image with rounded corners in a figure.">
-								<figcaption class="figure-caption text-right">${team.name}</figcaption>
-							</figure>
-							</a>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<p>No team found</p>
-					</c:otherwise>
-				</c:choose>
 			</div>
+			<div class="row justify-content-center">
+			<c:choose>
+				<c:when test="${! empty teamList}">
+					<c:forEach var="team" items="${teamList}">
+						<div class="card col-10 col-sm-6 col-md-4">
+							<a href="GetTeamByName.do?teamName=<c:out value='${team.name}'/>">
+							<img src="${team.logo}" class="img-fluid rounded"
+								alt="A generic square placeholder image with rounded corners in a figure.">
+							</a>
+							<p class="card-text">${team.name}</p>
+						</div>
+
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<p>No team found</p>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</div>
+</div>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
