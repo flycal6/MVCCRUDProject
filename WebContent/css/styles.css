@@ -47,6 +47,10 @@ body{
 	/* padding-bottom: 10px; */
 }
 
+form {
+	margin-bottom: 40px;
+}
+
 /*
  * Style tweaks
  * --------------------------------------------------

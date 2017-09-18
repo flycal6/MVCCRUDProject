@@ -53,37 +53,37 @@
 	</nav>
 	
 	<div class="container">
-		<div class="main row">
-			<div class="col-12 col-md-11">
-	<h3>Editing ${team.name} Details</h3>
-	<form action="UpdateTeam.do" method="POST">
-		Name:
-		<input type="text" class="form-control mr-sm-2"  name="name" value="${team.name}"/><br/>
-		First Year:
-		<input type="text" class="form-control mr-sm-2"  name="firstYear" value="${team.firstYear}"/><br/>
-		Last Year:
-		<input type="text" class="form-control mr-sm-2"  name="lastYear" value="${team.lastYear}"/><br/>
-		Where are they now:
-		<input type="text" class="form-control mr-sm-2"  name="relocatedTo" value="${team.relocatedTo}"/><br/>
-		Number of seasons played:
-		<input type="text" class="form-control mr-sm-2"  name="seasons" value="${team.seasons}"/><br/>
-		record:
-		<input type="text" class="form-control mr-sm-2"  name="record" value="${team.record}"/><br/>
-		Win Percentage:
-		<input type="text" class="form-control mr-sm-2"  name="winPercent" value="${team.winPercent}"/><br/>
-		Playoff Appearances:
-		<input type="text" class="form-control mr-sm-2"  name="playoffs" value="${team.playoffs}"/><br/>
-		Stanley Cups Won:
-		<input type="text" class="form-control mr-sm-2"  name="stanleyCups" value="${team.stanleyCups}"/><br/>
-		Reason for relocating:
-		<input type="text" class="form-control mr-sm-2"  name="reason" value="${team.reason}"/><br/>
-		Logo URL:
-		<input type="text" class="form-control mr-sm-2"  name="logo" value="${team.logo}"/><br/>
-
-		<input type="submit" class="btn my-2 my-sm-0" value="Update Team Details" />
-	</form>
-	</div>
-	</div>
+		<div class="main row justify-content-center">
+			<div class="col-12 col-md-8">
+				<h3>Editing ${team.name} Details</h3>
+				<form action="UpdateTeam.do" method="POST">
+					Name:
+					<input type="text" class="form-control mr-sm-2"  name="name" value="${team.name}"/><br/>
+					First Year:
+					<input type="text" class="form-control mr-sm-2"  name="firstYear" value="${team.firstYear}"/><br/>
+					Last Year:
+					<input type="text" class="form-control mr-sm-2"  name="lastYear" value="${team.lastYear}"/><br/>
+					Where are they now:
+					<input type="text" class="form-control mr-sm-2"  name="relocatedTo" value="${team.relocatedTo}"/><br/>
+					Number of seasons played:
+					<input type="text" class="form-control mr-sm-2"  name="seasons" value="${team.seasons}"/><br/>
+					record:
+					<input type="text" class="form-control mr-sm-2"  name="record" value="${team.record}"/><br/>
+					Win Percentage:
+					<input type="text" class="form-control mr-sm-2"  name="winPercent" value="${team.winPercent}"/><br/>
+					Playoff Appearances:
+					<input type="text" class="form-control mr-sm-2"  name="playoffs" value="${team.playoffs}"/><br/>
+					Stanley Cups Won:
+					<input type="text" class="form-control mr-sm-2"  name="stanleyCups" value="${team.stanleyCups}"/><br/>
+					Reason for relocating:
+					<input type="text" class="form-control mr-sm-2"  name="reason" value="${team.reason}"/><br/>
+					Logo URL:
+					<input type="text" class="form-control mr-sm-2"  name="logo" value="${team.logo}"/><br/>
+			
+					<input type="submit" class="btn my-2 my-sm-0" value="Update Team Details" />
+				</form>
+			</div>
+		</div>
 	</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
