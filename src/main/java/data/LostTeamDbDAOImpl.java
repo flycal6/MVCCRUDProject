@@ -75,13 +75,24 @@ public class LostTeamDbDAOImpl implements LostTeamDAO {
 				}
 			}
 		}
-//		return team;
 	}
 
 	@Override
 	public void removeTeam(LostTeam team) {
-		// TODO Auto-generated method stub
-
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(url, user, pass);
+			
+			String sql = "DELETE FROM teams WHERE id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setInt(1, team.getId());
+			int updateCount = stmt.executeUpdate();
+			
+			stmt.close();
+			conn.close();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
 	}
 
 	@Override
@@ -97,7 +108,6 @@ public class LostTeamDbDAOImpl implements LostTeamDAO {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			kw = "%" + kw + "%";
 			stmt.setString(1, kw);
-//			stmt.setString(2, kw);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Integer id = rs.getInt(1);

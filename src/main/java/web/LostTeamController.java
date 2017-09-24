@@ -63,10 +63,10 @@ public class LostTeamController {
 		LostTeam team = (LostTeam) session.getAttribute("team"); // cast the session attribute to a LostTeam
 		ModelAndView mv = new ModelAndView(); // so it can be removed from the list
 		if (team != null) {
-			System.out.println("removing " + team);
+//			System.out.println("removing " + team);
 			dao.removeTeam(team);
 		} else {
-			System.out.println("didn't remove, team was null");
+			System.err.println("Error deleting, team was null");
 		}
 		redir.addFlashAttribute("team", team);
 		mv.setViewName("redirect:TeamDeleted.do");
