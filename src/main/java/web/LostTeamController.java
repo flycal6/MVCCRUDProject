@@ -126,4 +126,14 @@ public class LostTeamController {
 		mv.setViewName("result");
 		return mv;
 	}
+	
+	@RequestMapping(path="SearchByKeyword.do")
+	public ModelAndView searchForTeams(String kw) {
+		ModelAndView mv = new ModelAndView();
+		if (dao.getTeamByKeyword(kw) != null) {
+			mv.addObject("teamList", dao.getTeamByKeyword(kw));
+		}
+		mv.setViewName("home");
+		return mv;
+	}
 }

@@ -55,7 +55,7 @@ public class LostTeamDbDAOImpl implements LostTeamDAO {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			kw = "%" + kw + "%";
 			stmt.setString(1, kw);
-			stmt.setString(2, kw);
+//			stmt.setString(2, kw);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Integer id = rs.getInt(1);
