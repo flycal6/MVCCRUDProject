@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,48 @@ public class LostTeamDbDAOImpl implements LostTeamDAO {
 
 	@Override
 	public void addTeam(LostTeam team) {
-
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(url, user, pass);
+			conn.setAutoCommit(false);
+			String sql = "INSERT INTO teams (name, first_year, last_year, relocated_to, seasons, record, win_percentage, "
+					+ "playoff_appearances, stanley_cups, reason, logo ) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, team.getName());
+			stmt.setInt(2, team.getFirstYear());
+			stmt.setInt(3, team.getLastYear());
+			stmt.setString(4, team.getRelocatedTo());
+			stmt.setInt(5, (team.getLastYear() - team.getFirstYear()));
+			stmt.setString(6, team.getRecord());
+			stmt.setDouble(7, team.getWinPercent());
+			stmt.setInt(8, team.getPlayoffs());
+			stmt.setInt(9, team.getStanleyCups());
+			stmt.setString(10, team.getReason());
+			stmt.setString(11, team.getLogo());
+			int updateCount = stmt.executeUpdate();
+			if (updateCount == 1) {
+				ResultSet keys = stmt.getGeneratedKeys();
+				if (keys.next()) {
+					int newTeamId = keys.getInt(1);
+					team.setId(newTeamId);
+				}
+			} else {
+				team = null;
+			}
+			conn.commit(); // COMMIT TRANSACTION
+			stmt.close();
+			conn.close();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+		}
+//		return team;
 	}
 
 	@Override
