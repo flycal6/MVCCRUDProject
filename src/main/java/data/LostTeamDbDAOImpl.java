@@ -43,7 +43,7 @@ public class LostTeamDbDAOImpl implements LostTeamDAO {
 	}
 
 	@Override
-	public List<LostTeam> getTeamByName(String kw) {
+	public List<LostTeam> getTeamByKeyword(String kw) {
 		List<LostTeam> teamList = new ArrayList<>();
 //		LostTeam team = null;
 		try {
@@ -122,6 +122,47 @@ public class LostTeamDbDAOImpl implements LostTeamDAO {
 			e.printStackTrace();
 		}
 		return teamList;
+	}
+
+	@Override
+	public LostTeam getTeamByName(String kw) {
+//		List<LostTeam> teamList = new ArrayList<>();
+		LostTeam team = null;
+		try {
+			Connection conn = DriverManager.getConnection(url, user, pass);
+			String sql = "select " + " id, name, first_year, last_year, relocated_to, seasons, record, win_percentage, "
+					+ "playoff_appearances, stanley_cups, reason, logo "
+					+ " from teams where name like ? ";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			kw = "%" + kw + "%";
+			stmt.setString(1, kw);
+//			stmt.setString(2, kw);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				Integer id = rs.getInt(1);
+				String name = rs.getString(2);
+				Integer firstYear = rs.getInt(3);
+				Integer lastYear = rs.getInt(4);
+				String relocatedTo = rs.getString(5);
+				Integer seasons = rs.getInt(6);
+				String record = rs.getString(7);
+				Double winPercent = rs.getDouble(8);
+				Integer playoffs = rs.getInt(9);
+				Integer stanleyCups = rs.getInt(10);
+				String reason = rs.getString(11);
+				String logo = rs.getString(12);
+
+				team = (new LostTeam(id, name, firstYear, lastYear, relocatedTo, seasons, record, winPercent,
+						playoffs, stanleyCups, reason, logo));
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return team;
 	}
 
 	// @Override

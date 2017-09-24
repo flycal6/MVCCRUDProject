@@ -6,7 +6,8 @@ public interface LostTeamDAO {
 	String homePage();
 	void addTeam(LostTeam team);
 	void removeTeam(LostTeam team);
-	List<LostTeam> getTeamByName(String name);
+	LostTeam getTeamByName(String name);
+	List<LostTeam> getTeamByKeyword(String kw);
 	List<LostTeam> getTeams();
 //	LostTeam updateTeam(LostTeam team);
 }
