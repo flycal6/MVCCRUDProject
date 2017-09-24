@@ -104,25 +104,21 @@ public class LostTeamController {
 		return "editTeam";
 	}
 
-	@RequestMapping(path = "UpdateTeam.do") // for some reason I get errors when trying to just pass a LostTeam obj
-	public ModelAndView updateTeam(String name, Integer firstYear, Integer lastYear, String relocatedTo,
-			Integer seasons, String record, Double winPercent, Integer playoffs, Integer stanleyCups, String reason,
-			String logo, HttpSession session) {
+	@RequestMapping(path = "UpdateTeam.do", method = RequestMethod.POST)
+	public ModelAndView updateTeam(LostTeam team, RedirectAttributes redir) {
+//		LostTeam team = (LostTeam) session.getAttribute("team");
 		ModelAndView mv = new ModelAndView();
-		LostTeam team = (LostTeam) session.getAttribute("team");
 		if (team != null) {
-			team.setName(name);
-			team.setFirstYear(firstYear);
-			team.setLastYear(lastYear);
-			team.setRelocatedTo(relocatedTo);
-			team.setSeasons(seasons);
-			team.setRecord(record);
-			team.setWinPercent(winPercent);
-			team.setPlayoffs(playoffs);
-			team.setStanleyCups(stanleyCups);
-			team.setReason(reason);
-			team.setLogo(logo);
+			dao.updateTeam(team);
 		}
+		redir.addFlashAttribute("team", team);
+		mv.setViewName("redirect:TeamUpdated.do");
+		return mv;
+	}
+	
+	@RequestMapping(path = "TeamUpdated.do", method = RequestMethod.GET)
+	public ModelAndView teamUpdated(LostTeam team) {
+		ModelAndView mv = new ModelAndView();
 		mv.setViewName("result");
 		return mv;
 	}

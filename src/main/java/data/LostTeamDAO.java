@@ -9,5 +9,5 @@ public interface LostTeamDAO {
 	LostTeam getTeamByName(String name);
 	List<LostTeam> getTeamByKeyword(String kw);
 	List<LostTeam> getTeams();
-//	LostTeam updateTeam(LostTeam team);
+	LostTeam updateTeam(LostTeam team);
 }

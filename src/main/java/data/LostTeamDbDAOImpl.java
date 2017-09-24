@@ -217,22 +217,45 @@ public class LostTeamDbDAOImpl implements LostTeamDAO {
 		return team;
 	}
 
-	// @Override
-	// public LostTeam updateTeam(LostTeam team) {
-	// if (team != null) {
-	// team.setName(name);
-	// team.setFirstYear(firstYear);
-	// team.setLastYear(lastYear);
-	// team.setRelocatedTo(relocatedTo);
-	// team.setSeasons(seasons);
-	// team.setRecord(record);
-	// team.setWinPercent(winPercent);
-	// team.setPlayoffs(playoffs);
-	// team.setStanleyCups(stanleyCups);
-	// team.setReason(reason);
-	// team.setLogo(logo);
-	// }
-	// return null;
-	// }
+	 @Override
+	 public LostTeam updateTeam(LostTeam team) {
+		 Connection conn = null;
+			try {
+				conn = DriverManager.getConnection(url, user, pass);
+				conn.setAutoCommit(false);
+				String sql = "UPDATE teams SET name=?, first_year=?, last_year=?, relocated_to=?, seasons=?, "
+						+ " record=?, win_percentage=?, playoff_appearances=?, stanley_cups=?, reason=?, logo=? "
+						+ " WHERE id = ? ";
+				PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+				stmt.setString(1, team.getName());
+				stmt.setInt(2, team.getFirstYear());
+				stmt.setInt(3, team.getLastYear());
+				stmt.setString(4, team.getRelocatedTo());
+				stmt.setInt(5, (team.getLastYear() - team.getFirstYear()));
+				stmt.setString(6, team.getRecord());
+				stmt.setDouble(7, team.getWinPercent());
+				stmt.setInt(8, team.getPlayoffs());
+				stmt.setInt(9, team.getStanleyCups());
+				stmt.setString(10, team.getReason());
+				stmt.setString(11, team.getLogo());
+				stmt.setInt(12, team.getId());
+				int updateCount = stmt.executeUpdate();
+				
+				conn.commit(); // COMMIT TRANSACTION
+				stmt.close();
+				conn.close();
+			} catch (SQLException sqle) {
+				sqle.printStackTrace();
+				System.err.println("Error Updating Team");
+				if (conn != null) {
+					try {
+						conn.rollback();
+					} catch (SQLException sqle2) {
+						System.err.println("Error trying to rollback");
+					}
+				}
+			}
+			return team;
+	 }
 
 }
