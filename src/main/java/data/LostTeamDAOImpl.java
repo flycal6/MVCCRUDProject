@@ -88,9 +88,15 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 		teams.remove(team);
 	}
 
-//	@Override
-//	public LostTeam updateTeam(LostTeam team) {
-//		teams.add(team);
-//		return team;
-//	}
+	@Override
+	public LostTeam updateTeam(LostTeam team) {
+		teams.add(team);
+		return team;
+	}
+
+	@Override
+	public List<LostTeam> getTeamByKeyword(String kw) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
