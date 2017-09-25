@@ -1,10 +1,12 @@
-# MVCCRUDProject
-This is a webapp with Create, Read, Update, & Destroy functionality.
+# Dead Hockey Teams
+This is a CRUD webapp with Create, Read, Update, & Destroy functionality.
 
-##  A user editable listing of dead hockey teams
+This is a user editable listing of dead or relocated hockey teams.
 
 ### Tech used
 * Java
+* JDBC
+* MYSQL
 * Spring
 * Tomcat
 * Gradle
