@@ -48,8 +48,8 @@
           </li> -->
 			</ul>
 			<form class="form-inline my-2 my-lg-0 findTeam"
-				action="GetTeamByName.do" method="POST">
-				<input class="form-control mr-sm-2" type="text" name="teamName"
+				action="SearchByKeyword.do" method="POST">
+				<input class="form-control mr-sm-2" type="text" name="kw"
 					placeholder="Find Team" aria-label="Find Team">
 				<button class="btn btn-outline-success my-2 my-sm-0" name="submit"
 					type="submit">Search</button>

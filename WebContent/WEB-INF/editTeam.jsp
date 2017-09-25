@@ -57,6 +57,7 @@
 			<div class="col-12 col-md-8">
 				<h3>Editing ${team.name} Details</h3>
 				<form action="UpdateTeam.do" method="POST">
+					<input type="hidden" class="form-control mr-sm-2"  name="id" value="${team.id}"/>
 					Name:
 					<input type="text" class="form-control mr-sm-2"  name="name" value="${team.name}"/><br/>
 					First Year:

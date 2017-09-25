@@ -62,27 +62,30 @@
 			<div class="col-12 col-md-8">
 				<h3>New Team</h3>
 				<form action="CreateTeam.do" method="POST">
-					Name: <input type="text" name="name" class="form-control mr-sm-2" value="Puerto Rico Coasters" /><br />
-					First Year: <input type="text" class="form-control mr-sm-2" name="firstYear" value="1900" /><br />
-					Last Year: <input type="text" class="form-control mr-sm-2" name="lastYear" value="1905" /><br />
+					<%-- <input type="hidden" class="form-control mr-sm-2"  name="id" value="${team.id}"/> --%>
+					Name: 
+					<input type="text" name="name" class="form-control mr-sm-2" value="Puerto Rico Coasters" /><br />
+					First Year: 
+					<input type="text" class="form-control mr-sm-2" name="firstYear" value="1900" /><br />
+					Last Year: 
+					<input type="text" class="form-control mr-sm-2" name="lastYear" value="1905" /><br />
 					Where are they now: 
-					<input type="text" name="relocatedTo" class="form-control mr-sm-2"
-						value="San Juan" /><br /> 
-						record: <input type="text" name="record" class="form-control mr-sm-2"
-						value="190-105-8-12" /><br /> 
-						Win Percentage: <input type="text" class="form-control mr-sm-2"
-						name="winPercent" value="0.498" /><br /> 
-						Playoff Appearances: <input type="text" class="form-control mr-sm-2" name="playoffs" value="4" /><br /> 
-						Stanley Cups Won: <input type="text" class="form-control mr-sm-2" name="stanleyCups" value="1" /><br /> 
-						Reason for relocating: <input type="text" name="reason" class="form-control mr-sm-2"
-						value="Ran out of money" /><br /> 
-						Logo URL: <input type="text" name="logo" class="form-control mr-sm-2"
-						value="https://media2.fdncms.com/metrotimes/imager/u/original/2398383/newdlogo.jpg" /><br />
-
+					<input type="text" name="relocatedTo" class="form-control mr-sm-2" value="San Juan" /><br /> 
+					record: 
+					<input type="text" name="record" class="form-control mr-sm-2" value="190-105-8-12" /><br /> 
+					Win Percentage: 
+					<input type="text" class="form-control mr-sm-2" name="winPercent" value="0.498" /><br /> 
+					Playoff Appearances: 
+					<input type="text" class="form-control mr-sm-2" name="playoffs" value="4" /><br /> 
+					Stanley Cups Won: 
+					<input type="text" class="form-control mr-sm-2" name="stanleyCups" value="1" /><br /> 
+					Reason for relocating: 
+					<input type="text" name="reason" class="form-control mr-sm-2" value="Ran out of money" /><br /> 
+					Logo URL: 
+					<input type="text" name="logo" class="form-control mr-sm-2" value="https://media2.fdncms.com/metrotimes/imager/u/original/2398383/newdlogo.jpg" /><br />
 
 					<input type="submit" class="btn my-2 my-sm-0" value="Add Team" />
 				</form>
-
 			</div>
 		</div>
 	</div>

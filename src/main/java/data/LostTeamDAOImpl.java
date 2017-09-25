@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-@Component
+//@Component  commented out to direct controller to new LostTeamDbDAOImpl.java
 public class LostTeamDAOImpl implements LostTeamDAO {
 	
 	@Autowired
@@ -35,18 +35,19 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 			String line = buf.readLine();
 			while ((line = buf.readLine()) != null) {
 				String[] tokens = line.split(",");
-				String name = tokens[0];
-				String firstYear = tokens[1];
-				String lastYear = tokens[2];
-				String relocatedTo = tokens[3];
-				String seasons = tokens[4];
-				String record = tokens[5];
-				String winPercent = tokens[6];
-				String playoffs = tokens[7];
-				String stanleyCups = tokens[8];
-				String reason = tokens[9];
-				String logo = tokens[10];
-				teams.add(new LostTeam(name, firstYear, lastYear, relocatedTo, seasons, record, winPercent, playoffs, stanleyCups, reason, logo));
+				Integer id = Integer.parseInt(tokens[0]);
+				String name = tokens[1];
+				Integer firstYear = Integer.parseInt(tokens[2]);
+				Integer lastYear = Integer.parseInt(tokens[3]);
+				String relocatedTo = tokens[4];
+				Integer seasons = Integer.parseInt(tokens[5]);
+				String record = tokens[6];
+				Double winPercent = Double.parseDouble(tokens[7]);
+				Integer playoffs = Integer.parseInt(tokens[8]);
+				Integer stanleyCups = Integer.parseInt(tokens[9]);
+				String reason = tokens[10];
+				String logo = tokens[11];
+				teams.add(new LostTeam(id, name, firstYear, lastYear, relocatedTo, seasons, record, winPercent, playoffs, stanleyCups, reason, logo));
 			}
 		} catch (Exception e) {
 			System.err.println(e);
@@ -87,9 +88,15 @@ public class LostTeamDAOImpl implements LostTeamDAO {
 		teams.remove(team);
 	}
 
-//	@Override
-//	public LostTeam updateTeam(LostTeam team) {
-//		teams.add(team);
-//		return null;
-//	}
+	@Override
+	public LostTeam updateTeam(LostTeam team) {
+		teams.add(team);
+		return team;
+	}
+
+	@Override
+	public List<LostTeam> getTeamByKeyword(String kw) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -1,23 +1,26 @@
 package data;
 
 public class LostTeam {
+	private Integer id;
 	private String name;
-	private String firstYear;
-	private String lastYear;
+	private Integer firstYear;
+	private Integer lastYear;
 	private String relocatedTo;
-	private String seasons;
+	private Integer seasons;
 	private String record;
-	private String winPercent;
-	private String playoffs;
-	private String stanleyCups;
+	private Double winPercent;
+	private Integer playoffs;
+	private Integer stanleyCups;
 	private String reason;
 	private String logo;
-	
+
 	public LostTeam() {
 	}
 
-	public LostTeam(String name, String firstYear, String lastYear, String relocatedTo, String seasons, String record,
-			String winPercent, String playoffs, String stanleyCups, String reason, String logo) {
+	public LostTeam(Integer id, String name, Integer firstYear, Integer lastYear, String relocatedTo, Integer seasons,
+			String record, Double winPercent, Integer playoffs, Integer stanleyCups, String reason, String logo) {
+		super();
+		this.id = id;
 		this.name = name;
 		this.firstYear = firstYear;
 		this.lastYear = lastYear;
@@ -31,6 +34,14 @@ public class LostTeam {
 		this.logo = logo;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -39,19 +50,19 @@ public class LostTeam {
 		this.name = name;
 	}
 
-	public String getFirstYear() {
+	public Integer getFirstYear() {
 		return firstYear;
 	}
 
-	public void setFirstYear(String firstYear) {
+	public void setFirstYear(Integer firstYear) {
 		this.firstYear = firstYear;
 	}
 
-	public String getLastYear() {
+	public Integer getLastYear() {
 		return lastYear;
 	}
 
-	public void setLastYear(String lastYear) {
+	public void setLastYear(Integer lastYear) {
 		this.lastYear = lastYear;
 	}
 
@@ -63,11 +74,11 @@ public class LostTeam {
 		this.relocatedTo = relocatedTo;
 	}
 
-	public String getSeasons() {
+	public Integer getSeasons() {
 		return seasons;
 	}
 
-	public void setSeasons(String seasons) {
+	public void setSeasons(Integer seasons) {
 		this.seasons = seasons;
 	}
 
@@ -79,27 +90,27 @@ public class LostTeam {
 		this.record = record;
 	}
 
-	public String getWinPercent() {
+	public Double getWinPercent() {
 		return winPercent;
 	}
 
-	public void setWinPercent(String winPercent) {
+	public void setWinPercent(Double winPercent) {
 		this.winPercent = winPercent;
 	}
 
-	public String getPlayoffs() {
+	public Integer getPlayoffs() {
 		return playoffs;
 	}
 
-	public void setPlayoffs(String playoffs) {
+	public void setPlayoffs(Integer playoffs) {
 		this.playoffs = playoffs;
 	}
 
-	public String getStanleyCups() {
+	public Integer getStanleyCups() {
 		return stanleyCups;
 	}
 
-	public void setStanleyCups(String stanleyCups) {
+	public void setStanleyCups(Integer stanleyCups) {
 		this.stanleyCups = stanleyCups;
 	}
 
@@ -111,7 +122,6 @@ public class LostTeam {
 		this.reason = reason;
 	}
 
-	
 	public String getLogo() {
 		return logo;
 	}
@@ -123,7 +133,9 @@ public class LostTeam {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("LostTeam [name=");
+		builder.append("LostTeam [id=");
+		builder.append(id);
+		builder.append(", name=");
 		builder.append(name);
 		builder.append(", firstYear=");
 		builder.append(firstYear);
@@ -143,9 +155,35 @@ public class LostTeam {
 		builder.append(stanleyCups);
 		builder.append(", reason=");
 		builder.append(reason);
+		builder.append(", logo=");
+		builder.append(logo);
 		builder.append("]");
 		return builder.toString();
 	}
 
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		LostTeam other = (LostTeam) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+
 }
